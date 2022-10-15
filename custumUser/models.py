@@ -48,13 +48,15 @@ class MyUser(AbstractBaseUser):
         unique=True,
     )
     date_of_birth = models.DateField()
-    userName = models.CharField(blank=False, max_length=200,unique=True)
+    username = models.CharField(blank=False, max_length=200,unique=True)
+
+
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
 
     objects = MyUserManager()
 
-    USERNAME_FIELD = 'userName'
+    USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['date_of_birth','email']
 
     def __str__(self):
