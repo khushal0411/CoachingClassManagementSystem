@@ -1,13 +1,15 @@
 from django.db import models
 
 from django.db import models
+from organisationData.models import OrgData
+
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
 
 
 class MyUserManager(BaseUserManager):
-    def create_user(self, userName, email, date_of_birth, password=None):
+    def create_user(self, username, email, date_of_birth, password=None):
         """
         Creates and saves a User with the given email, date of
         birth and password.
@@ -15,28 +17,30 @@ class MyUserManager(BaseUserManager):
         if not email:
             raise ValueError('Users must have an email address')
 
-        user = self.model(
-            userName=userName,
-            email=self.normalize_email(email),
-            date_of_birth=date_of_birth,
+        user                = self.model(
+            username        =username,
+            email           =self.normalize_email(email),
+            date_of_birth   =date_of_birth,
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, userName, email, date_of_birth, password=None):
+    def create_superuser(self, username, email, date_of_birth, password=None):
         """
         Creates and saves a superuser with the given email, date of
         birth and password.
         """
         user = self.create_user(
-            userName=userName,
-            email=email,
-            password=password,
-            date_of_birth=date_of_birth,
+            username        =username,
+            email           =email,
+            password        =password,
+            date_of_birth   =date_of_birth,
         )
-        user.is_admin = True
+        user.is_admin       = True
+        #user.is_staff      = True
+        user.is_superuser   = True
         user.save(using=self._db)
         return user
 
@@ -47,17 +51,17 @@ class MyUser(AbstractBaseUser):
         max_length=255,
         unique=True,
     )
-    date_of_birth = models.DateField()
-    username = models.CharField(blank=False, max_length=200,unique=True)
-
-
-    is_active = models.BooleanField(default=True)
-    is_admin = models.BooleanField(default=False)
-
-    objects = MyUserManager()
+    date_of_birth       = models.DateField()
+    username            = models.CharField(blank=False, max_length=200, unique=True)
+    organization        = models.ForeignKey(OrgData, blank=False, on_delete=models.CASCADE)
+    is_active           = models.BooleanField(default=True)
+    is_admin            = models.BooleanField(default=False)
+    #is_staff           = models.BooleanField(default=False)
+    is_superuser        = models.BooleanField(default=False)
+    objects             = MyUserManager()
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['date_of_birth','email']
+    REQUIRED_FIELDS = ['date_of_birth', 'email']
 
     def __str__(self):
         return self.email
@@ -76,4 +80,4 @@ class MyUser(AbstractBaseUser):
     def is_staff(self):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
-        return self.is_admin
+        return self.is_superuser

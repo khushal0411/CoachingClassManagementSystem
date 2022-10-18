@@ -17,9 +17,10 @@ from django.urls import reverse_lazy
 def home_view(request):
     if request.method == 'POST':
         # AuthenticationForm_can_also_be_used__
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
+        username            = request.POST['username']
+        password            = request.POST['password']
+        organization        = request.POST['organization']
+        user = authenticate(request, username=username, password=password, organization=organization)
         if user is not None:
             form = login(request, user)
             messages.success(request, f' welcome {username} !!')
