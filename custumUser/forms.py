@@ -6,7 +6,7 @@ from organisationData.models import OrgData
 
 
 
-class InputForm(forms.Form):
+class InputForm(forms.ModelForm):
     username            = forms.CharField(max_length=200)
     #email              = forms.EmailField(max_length=200)
     password            = forms.CharField(widget=forms.PasswordInput())
