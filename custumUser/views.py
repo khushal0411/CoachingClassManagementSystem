@@ -33,3 +33,8 @@ def home_view(request):
     #form = AuthenticationForm()
     return render(request, 'signin.html', { 'title': 'log in','data':data})
 
+
+def home(request):
+
+    return render(request, 'home.html')
+

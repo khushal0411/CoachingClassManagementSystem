@@ -15,7 +15,7 @@ class OrgRegBy(models.Model):
 
 
 class OrgData(models.Model):
-    #OrgID               = models.AutoField(primary_key=True)
+    OrgID               = models.AutoField(primary_key=True)
     OrgName             = models.CharField('Organization Name', max_length=120,unique=True)
     OrgAddress          = models.TextField(max_length=300)
     OrgEmail            = models.EmailField('E-mail Address')
