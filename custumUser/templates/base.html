@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
 </head>
+<h1>Welcome {{username}}</h1>
+<h2> Organization: {{organization}}</h2>
+{% for i in org %}
+<h3> Organization_Address: {{i.OrgAddress}}</h3>
+{% endfor %}
 <body>
 <main>
    hello world

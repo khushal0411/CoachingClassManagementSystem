@@ -21,11 +21,12 @@
         {% csrf_token %}
         <div class="form-group">
             <label>First Name </label>
-            {{ form.username }}
+             <input type="email" name="email" maxlength="255" required>
+
         </div>
         <div class="form-group">
             <label>Last Name </label>
-            {{ form.password }}
+             <input type="password" name="password" required>
         </div>
 
         <div class="form-group">
@@ -35,6 +36,7 @@
                 <option>{{organization}}</option>
                 {% endfor %}
             </select>
+
 
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

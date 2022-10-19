@@ -12,7 +12,7 @@ admin.site.register(OrgRegBy)
 @admin.register(OrgData)
 
 class OrgDataAdmin(admin.ModelAdmin):
-    list_display = ('OrgID', 'OrgName', 'OrgType', 'OrgCreated')
+    list_display = ( 'OrgName', 'OrgType', 'OrgCreated')
     #ordering = ('name',)
     #search_fields = ('name', 'address', )
 

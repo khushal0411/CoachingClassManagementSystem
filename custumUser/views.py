@@ -18,20 +18,18 @@ from django.urls import reverse_lazy
 def home_view(request):
     if request.method == 'POST':
         # AuthenticationForm_can_also_be_used__
-        username            = request.POST['username']
+        username            = request.POST.get('email')
         password            = request.POST['password']
         organization        = request.POST.get('org')
-        print(username)
-        print(password)
-        print(organization)
-        user = authenticate(request, username=username, password=password, organization=organization)
+        user = authenticate(request, email=username, password=password, organization=organization)
         if user is not None:
             form = login(request, user)
             messages.success(request, f' welcome {username} !!')
-            return render(request, 'base.html')
+            org= OrgData.objects.filter(OrgName=organization)
+            return render(request, 'base.html',{'username':username,'organization':organization,'org':org})
         else:
             messages.info(request, f'account done not exit plz sign in')
     data= OrgData.objects.all()
-    form = AuthenticationForm()
-    return render(request, 'signin.html', {'form': form, 'title': 'log in','data':data})
+    #form = AuthenticationForm()
+    return render(request, 'signin.html', { 'title': 'log in','data':data})
 
