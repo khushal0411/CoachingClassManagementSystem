@@ -16,5 +16,3 @@ class InputForm(forms.ModelForm):
         model = MyUser
         fields = ['email', 'password', 'organization']
 
-app=InputForm(auto_id=False)
-print(app.as_p())
