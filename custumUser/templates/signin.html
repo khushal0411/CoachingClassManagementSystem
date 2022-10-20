@@ -32,7 +32,10 @@
   <tr>
     <td>
     {% load static %}
-    <img id="optionalstuff" style="width: 720px; height: 743.3px;" src="{% static 'img.png' %}"  alt="home" />
+    <!--<img id="optionalstuff" style="width: 720px; height: 743.3px;" src="{% static 'img.png' %}"  alt="home" />-->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+      <lottie-player id="optionalstuff" src="{% static 'anime_one.json' %}" background="transparent"  speed="1"  style="width: 720px; height: 743.3px;" loop  autoplay></lottie-player>
 
     </td>
 
