@@ -25,8 +25,9 @@ def home_view(request):
         if user is not None:
             form = login(request, user)
             messages.success(request, f' welcome {username} !!')
-            org= OrgData.objects.filter(OrgName=organization)
-            return render(request, 'base.html',{'username':username,'organization':organization,'org':org})
+            org = OrgData.objects.filter(OrgName=organization)
+            return render(request, 'dashboard.html',{'username':username,'organization':organization,'org':org})
+
         else:
             messages.info(request, f'account done not exit plz sign in')
     data= OrgData.objects.all()

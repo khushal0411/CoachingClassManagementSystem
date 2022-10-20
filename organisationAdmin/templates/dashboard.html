@@ -1,0 +1,16 @@
+{% extends 'base_one.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Welcome {{username}}</h1>
+<h2> Organization: {{organization}}</h2>
+{% for i in org %}
+<h3> Organization_Address: {{i.OrgAddress}}</h3>
+{% endfor %}
+</body>
+</html>
+{% endblock %}
