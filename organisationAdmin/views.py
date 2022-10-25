@@ -12,5 +12,6 @@ def dashboard(request):
 
 
 def registerStuTea(request):
-
-    return render(request, 'registerStuTea.html')
+    if request.user is not None:
+        org = OrgData.objects.filter(OrgName=request.user.organization)
+        return render(request, 'registerStuTea.html',{'username':request.user.username,'organization':request.user.organization,'org':org})

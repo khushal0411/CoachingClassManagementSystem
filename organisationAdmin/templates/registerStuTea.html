@@ -1,12 +1,210 @@
 {% extends 'base_one.html' %}
 {% block content %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
 
+  <style>
+.center {
+  margin: auto;
+  width: 90%;
+  padding: 5px;
+}
+
+@media (max-width:629px) {
+  li#optionalstuff {
+    display: none;
+  }
+}
+</style>
+
+  </head>
+  <body>
+
+
+<!-- Registration Form [Start] -->
+  <div class="container" style="margin-top: 20px;">
+      <span class="display-6">Register New <strong>Student</strong></span>
+     <div class="row g-5" style="margin-bottom: 20px;">
+    <!-- Main --><div class="col-md-8" style="background-color: #F2F2F2; padding-top: 20px; padding-bottom: 20px; border-radius: 18px; margin-top: 70px;">
+        <div class="col-md-7 col-lg-11">
+        <form class="needs-validation" novalidate="">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">First name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="Bob" value="" required="">
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Last name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="MacDonals" value="" required="">
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="username" class="form-label">Username</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">@</span>
+                <input type="text" class="form-control" id="username" placeholder="Username" required="">
+              <div class="invalid-feedback">
+                  Your username is required.
+                </div>
+              </div>
+            </div>
+
+
+              <div class="col-12">
+              <label for="password" class="form-label">Password</label>
+              <div class="input-group has-validation">
+                <input type="password" class="form-control" id="password" placeholder="Password" required="">
+              <div class="invalid-feedback">
+                  Your password is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+              <div class="invalid-feedback">
+                Please enter a valid email address for shipping updates.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address2" class="form-label">Contact Number <span class="text-muted">(Do not add [+91])</span></label>
+              <input type="text" class="form-control" id="address2" placeholder="123456XXX">
+            </div>
+
+            <div class="col-md-5">
+              <label for="country" class="form-label">Standard</label>
+              <select class="form-select" id="country" required="">
+                <option value="">Choose...</option>
+                  <option>Play Group</option>
+                  <option>Jr. Kg</option>
+                  <option>Sr. Kg</option>
+
+                <option>1st</option>
+                  <option>2nd</option>
+                  <option>3rd</option>
+                  <option>4th</option>
+                  <option>5th</option>
+                  <option>6th</option>
+                  <option>7th</option>
+                  <option>8th</option>
+                  <option>9th</option>
+                  <option>10th</option>
+                  <option>11th</option>
+                  <option>12th</option>
+
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid standard.
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label for="state" class="form-label">Age</label>
+              <select class="form-select" id="state" required="">
+                <option value="">Choose...</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>18</option>
+                  <option>19</option>
+                  <option>20</option>
+                  <option>21</option>
+                  <option>22</option>
+                  <option>23</option>
+                  <option>24</option>
+                  <option>25</option>
+                  <option>26</option>
+                  <option>27</option>
+                  <option>28</option>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid age.
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label">School Name</label>
+              <input type="text" class="form-control" placeholder="Bright School" required="">
+              <div class="invalid-feedback">
+                School Name required.
+              </div>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Register</button>
+        </form>
+      </div>
+    </div>
+         <!-- Registration Form [End] -->
+
+         <!-- Student/Teacher list [Start] -->
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem; margin-bottom: 2rem;">
+        <div class="p-4 mb-3 rounded" style="margin-bottom: 10px; background-color: #F2F2F2;">
+            <h4 class="fst-bold">Student List</h4>
+          <a href="#" style="color: black; text-decoration: none;">
+            <div class="card" style="width: 21.5rem; border: 0px; margin-bottom: 10px;">
+  <div class="card-body">
+      <table border="0">
+
+          <tr>
+              <td>
+                    <img src="profile.png" style="width: 41px; height: 41px; margin-right: 10px;">
+              </td>
+
+              <td width="190px">
+
+                  <h5 class="card-title" style="font-family: 'Inter'; font-style: normal; font-weight: 700; font-size: 15px; line-height: 18px;">Rohan Mehra</h5>
+    <p class="card-text" style="font-family: 'Inter'; font-style: normal; font-weight: 400; font-size: 13px; line-height: 16px;">Bright School</p>
+              </td>
+            <td>
+              <span class="badge bg-secondary bg-danger">STD : 1</span>
+            </td>
+          </tr>
+      </table>
+</div>
+        </div>
+          </a>
+
+</div>
+
+      </div>
+    </div>
+          <!-- Student/Teacher list [End] -->
+  </div>
+
+</div>
 </body>
 </html>
 {% endblock %}
