@@ -65,23 +65,6 @@
   <label for="floatingPassword">Password</label>
 </div>
 
-
-    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="font-size:16px; height:60px; background: #EBEBEB" required>
-  <option selected>Select your position</option>
-  <option value="1">Organization's Admin</option>
-  <option value="2">Teacher</option>
-  <option value="3">Student</option>
-</select>
-
-
-    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="font-size:16px; height:60px; background: #EBEBEB" name="org" required>
-                {% for organization in data%}
-                <option>{{organization}}</option>
-                {% endfor %}
-</select>
-
-
-
   <button class="btn btn-primary mb-3" type="submit" style="width:150px;" >Sign In</button>
 </form>
 

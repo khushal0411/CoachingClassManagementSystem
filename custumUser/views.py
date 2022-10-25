@@ -20,13 +20,11 @@ def home_view(request):
         # AuthenticationForm_can_also_be_used__
         username            = request.POST.get('email')
         password            = request.POST['password']
-        organization        = request.POST.get('org')
-        user = authenticate(request, email=username, password=password, organization=organization)
+        user = authenticate(request, email=username, password=password)
         if user is not None:
             form = login(request, user)
             messages.success(request, f' welcome {username} !!')
-            org = OrgData.objects.filter(OrgName=organization)
-            return render(request, 'dashboard.html',{'username':username,'organization':organization,'org':org})
+            return redirect('/dashboard')
 
         else:
             messages.info(request, f'account done not exit plz sign in')

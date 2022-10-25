@@ -46,6 +46,12 @@ class MyUserManager(BaseUserManager):
 
 
 class MyUser(AbstractBaseUser):
+    ROLE_CHOICES = (
+        ('Admin', 'ADMIN'),
+        ('Teacher', 'TEACHER'),
+        ('Student', 'STUDENT'),
+    )
+
     email = models.EmailField(
         verbose_name='email address',
         max_length=255,
@@ -58,6 +64,7 @@ class MyUser(AbstractBaseUser):
     is_admin            = models.BooleanField(default=False)
     #is_staff           = models.BooleanField(default=False)
     is_superuser        = models.BooleanField(default=False)
+    role                = models.CharField(max_length=50,choices=ROLE_CHOICES,null=True,blank=True)
     objects             = MyUserManager()
 
     USERNAME_FIELD = 'email'

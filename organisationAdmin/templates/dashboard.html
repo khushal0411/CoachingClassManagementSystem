@@ -6,11 +6,14 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Welcome {{username}}</h1>
+<h1>Welcome {{request.user.email}}</h1>
 <h2> Organization: {{organization}}</h2>
 {% for i in org %}
 <h3> Organization_Address: {{i.OrgAddress}}</h3>
 {% endfor %}
+
+<h3> Data: {{request.user.role}}</h3>
+
 </body>
 </html>
 {% endblock %}
